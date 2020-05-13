@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 type Props = {
   compiler: string;
@@ -7,10 +7,26 @@ type Props = {
 
 // Standard function definition (preferred)
 export default function Hello({ compiler, framework }: Props): JSX.Element {
+  const [name, setName] = useState('');
+  const [nameField, setNameField] = useState('');
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
+    setName(nameField);
+    setNameField('');
+  }
+
   return (
-    <h1>
-      Hello from {compiler} and {framework}!
-    </h1>
+    <form onSubmit={handleSubmit}>
+      <h1>
+        Hello, {name || 'World'}! Enjoy using {framework} with {compiler}.{' '}
+      </h1>
+      <label>
+        Name:
+        <input type="text" value={nameField} onChange={(e) => setNameField(e.target.value)} />
+      </label>
+      <input type="submit" />
+    </form>
   );
 }
 
