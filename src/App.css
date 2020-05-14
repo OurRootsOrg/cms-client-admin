@@ -1,21 +1,14 @@
 nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: #f3f3f3;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-nav li {
+nav a {
   float: left;
   border: 1px solid darkgray;
-}
-
-nav li a {
-  display: inline-block;
+  margin: 0;
   width: 60px;
   color: #000;
   padding: 12px;
@@ -24,7 +17,7 @@ nav li a {
   text-decoration: none;
 }
 
-nav li a:hover {
+nav a:hover {
   background-color: #555;
   color: white;
 }
@@ -35,6 +28,7 @@ nav li a:hover {
 }
 
 .App {
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -71,4 +65,12 @@ nav li a:hover {
   to {
     transform: rotate(360deg);
   }
+}
+
+.Welcome {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

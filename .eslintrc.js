@@ -18,6 +18,7 @@ module.exports = {
     'prettier/prettier': 'warn',
     'react/prop-types': 'off',
     '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
   settings: {
     react: {

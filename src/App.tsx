@@ -1,47 +1,35 @@
+import { Link, navigate, RouteComponentProps, Router } from '@reach/router';
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  NavLink,
-  Redirect,
-  Route,
-  Switch,
-  useHistory,
-} from 'react-router-dom';
 import './App.css';
 import Hello from './components/Hello';
 import logo from './logo.svg';
 
 export default function App(): JSX.Element {
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/home">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/welcome">Welcome</NavLink>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <Route path="/welcome">
-            <Welcome />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/">
-            <Redirect to="/home" />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <div>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="welcome">Welcome</NavLink>
+      </nav>
+      <Router>
+        <Home path="/" />
+        <Welcome path="/welcome" />
+      </Router>
+    </div>
   );
 }
 
-function Home(): JSX.Element {
+type NavProps = RouteComponentProps & {
+  to: string;
+  children?: React.ReactNode;
+};
+function NavLink(props: NavProps): JSX.Element {
+  return (
+    <Link {...props} getProps={({ isCurrent }) => (isCurrent ? { className: 'active' } : {})} />
+  );
+}
+
+function Home(_props: RouteComponentProps): JSX.Element {
   return (
     <div className="App">
       <header className="App-header">
@@ -62,12 +50,11 @@ function Home(): JSX.Element {
   );
 }
 
-function Welcome(): JSX.Element {
-  const history = useHistory();
+function Welcome(_props: RouteComponentProps): JSX.Element {
   return (
     <div className="Welcome">
       <Hello compiler="TypeScript" framework="React" />
-      <button onClick={() => history.push('/home')}>Home</button>
+      <button onClick={() => navigate('/')}>Home</button>
     </div>
   );
 }
