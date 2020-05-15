@@ -1,13 +1,13 @@
 import { Link, navigate, RouteComponentProps, Router } from '@reach/router';
 import React from 'react';
-import './App.css';
+import * as c from './App.style';
 import Hello from './components/Hello';
 import logo from './logo.svg';
 
 export default function App(): JSX.Element {
   return (
     <div>
-      <nav>
+      <nav css={c.nav}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="welcome">Welcome</NavLink>
       </nav>
@@ -25,24 +25,23 @@ type NavProps = RouteComponentProps & {
 };
 function NavLink(props: NavProps): JSX.Element {
   return (
-    <Link {...props} getProps={({ isCurrent }) => (isCurrent ? { className: 'active' } : {})} />
+    <Link
+      css={c.navLink}
+      {...props}
+      getProps={({ isCurrent }) => ({ active: isCurrent.toString() })}
+    />
   );
 }
 
 function Home(_props: RouteComponentProps): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div css={c.app}>
+      <header css={c.appHeader}>
+        <img src={logo} css={c.appLogo} alt="logo" />
         <p>
           Edit <code>src/*.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
       </header>
@@ -52,7 +51,7 @@ function Home(_props: RouteComponentProps): JSX.Element {
 
 function Welcome(_props: RouteComponentProps): JSX.Element {
   return (
-    <div className="Welcome">
+    <div css={c.welcome}>
       <Hello compiler="TypeScript" framework="React" />
       <button onClick={() => navigate('/')}>Home</button>
     </div>
