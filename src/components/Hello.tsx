@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   compiler: string;
@@ -7,6 +8,7 @@ type Props = {
 
 // Standard function definition (preferred)
 export default function Hello({ compiler, framework }: Props): JSX.Element {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [nameField, setNameField] = useState('');
 
@@ -18,11 +20,9 @@ export default function Hello({ compiler, framework }: Props): JSX.Element {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>
-        Hello, {name || 'World'}! Enjoy using {framework} with {compiler}.{' '}
-      </h1>
+      <h1>{t('Hello', { name: name || 'World', framework, compiler })}</h1>
       <label>
-        Name:
+        {t('Name')}:{' '}
         <input type="text" value={nameField} onChange={(e) => setNameField(e.target.value)} />
       </label>
       <input type="submit" />
@@ -30,7 +30,7 @@ export default function Hello({ compiler, framework }: Props): JSX.Element {
   );
 }
 
-// Arrow-function definition
+// Arrow-function definition. Unused, to show syntax only.
 export const Hello2: React.FC<Props> = ({ compiler, framework }) => (
   <h1>
     Hello from {compiler} and {framework}!

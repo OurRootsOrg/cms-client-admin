@@ -1,0 +1,8 @@
+{
+  "Home": "Home",
+  "Welcome": "Welcome",
+  "Instructions": "Edit {{code}} and save to reload.",
+  "Learn": "Learn React",
+  "Hello": "Hello, {{name}}! Enjoy using {{framework}} with {{compiler}}.",
+  "Name": "Name"
+}
