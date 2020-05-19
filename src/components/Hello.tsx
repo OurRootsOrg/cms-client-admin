@@ -21,11 +21,14 @@ export default function Hello({ compiler, framework }: Props): JSX.Element {
   return (
     <form onSubmit={handleSubmit}>
       <h1>{t('Hello', { name: name || 'World', framework, compiler })}</h1>
-      <label>
-        {t('Name')}:{' '}
-        <input type="text" value={nameField} onChange={(e) => setNameField(e.target.value)} />
-      </label>
-      <input type="submit" />
+      <label htmlFor="name">{t('Name')}</label>
+      <input
+        id="name"
+        type="text"
+        value={nameField}
+        onChange={(e) => setNameField(e.target.value)}
+      />
+      <input type="submit" value="Submit" />
     </form>
   );
 }
