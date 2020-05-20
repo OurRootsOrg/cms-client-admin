@@ -3,6 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as c from './App.style';
 import Hello from './components/Hello';
+import Search from './components/Search';
 import logo from './logo.svg';
 
 export default function App(): JSX.Element {
@@ -61,6 +62,7 @@ function Welcome(_props: RouteComponentProps): JSX.Element {
     <div css={c.welcome}>
       <Hello compiler="TypeScript" framework="React" />
       <button onClick={() => navigate('/')}>Home</button>
+      <Search />
     </div>
   );
 }

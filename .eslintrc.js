@@ -17,6 +17,7 @@ module.exports = {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     'prettier/prettier': 'warn',
     'react/prop-types': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
   },
