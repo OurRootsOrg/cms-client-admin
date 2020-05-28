@@ -1,12 +1,12 @@
 {
-  "name": "tutorial3",
+  "name": "react-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,18 +24,16 @@
     ]
   },
   "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
     "@reach/router": "^1.3.3",
     "axios": "^0.19.2",
     "i18next": "^19.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-i18next": "^11.4.0",
-    "react-scripts": "3.4.1",
-    "typescript": "^3.9.2"
+    "react-i18next": "^11.4.0"
   },
   "devDependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.27",
-    "@emotion/core": "^10.0.28",
     "@sheerun/mutationobserver-shim": "^0.3.3",
     "@testing-library/jest-dom": "^5.7.0",
     "@testing-library/react": "^10.0.4",
@@ -48,11 +46,11 @@
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "axios-mock-adapter": "^1.18.1",
-    "customize-cra": "^0.9.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
     "prettier": "^2.0.5",
-    "react-app-rewired": "^2.1.6"
+    "react-scripts": "3.4.1",
+    "typescript": "^3.9.2"
   }
 }
