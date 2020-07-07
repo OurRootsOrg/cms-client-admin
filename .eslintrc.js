@@ -29,7 +29,7 @@ module.exports = {
   overrides: [
     {
       files: ['*.js', '*.jsx'],
-      parser: '@eslint/parser',
+      parser: 'espree',
       extends: [
         'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
         'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
